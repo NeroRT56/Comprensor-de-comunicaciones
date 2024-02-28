@@ -28,3 +28,24 @@ class TestHuffmanCoding(unittest.TestCase):
         huffman = HuffmanCoding("test.txt")
         frequency = huffman.make_frequency_dict("hello")
         self.assertEqual(frequency, {'h': 1, 'e': 1, 'l': 2, 'o': 1})
+
+    def test_huffman_code(self):
+        freq = {'a':5, 'b': 9, 'c': 12, 'd': 13, 'e':16, 'f': 45}
+        expected_result =[('f','0'),('d','10')('e','11'),('c','100'),('b','101'),('a','110')]
+
+        result = HuffmanCoding(freq)
+        self.assertEqual(result, expected_result)
+
+    def test_huffman_code_empty_input(self):
+        freq = {}
+        expected_result = []
+        result = HuffmanCoding.compress(freq)
+
+        self.assertEqual(freq, expected_result) 
+    def test_huffman_code_single_symbol(self):
+        freq = {'a':1}
+        expected_result = [('a','0')]
+        
+        result = HuffmanCoding.compress(freq)
+        self.assertEqual(result, expected_result)
+        
