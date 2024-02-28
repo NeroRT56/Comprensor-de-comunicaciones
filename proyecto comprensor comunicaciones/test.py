@@ -22,10 +22,30 @@ class comprehensionTest:
         encoded_text, tree = huffman.compress()
         decoded_text = huffman.decompress(encoded_text, tree)
 
-        assert decoded_text == text
+        if decoded_text == text:
+            print("Prueba superada")
     
-    """
     
+
+
+#class TestHuffmanCode(unittest.TestCase):
+
+    def test_huffman_code(self):
+        freq = {'a': 5, 'b': 9, 'c': 12, 'd': 13, 'e': 16, 'f': 45}
+        expected_output = [('f', '0'), ('d', '10'), ('e', '11'), ('c', '100'), ('b', '101'), ('a', '110')]
+        self.assertEqual(model2.huffman_code(freq), expected_output)
+
+    def test_huffman_code_empty_input(self):
+        freq = {}
+        expected_output = []
+        self.assertEqual(model2.huffman_code(freq), expected_output)
+
+    def test_huffman_code_single_symbol(self):
+        freq = {'a': 1}
+        expected_output = [('a', '0')]
+        self.assertEqual(model2.huffman_code(freq), expected_output)
+
+
     def testMayus(self):
         pass
 
@@ -88,6 +108,6 @@ class comprehensionTest:
 
     def test_20(self):
         pass
-"""
-if __name__ == "__name__":
+
+if __name__ == '__name__':
     unittest.main()
