@@ -5,7 +5,7 @@ from collections import defaultdict
 
 # construimos la clase prueba 
 
-class comprehensionTest:
+class comprehensionTest(unittest.TestCase):
     
     def testZero(self):
 
